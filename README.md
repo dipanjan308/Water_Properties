@@ -8,3 +8,6 @@ be connected via hydrogen bond (HB). To define a HB we use three criterion:
 
 ## number_h_bonds_ding_criterion_npt.py: 
 Calculates average number of hydrogen bonds per oxygen atom for varying box size in NPT ensamble.
+
+## static_sf_pw.py:
+Calculates the static structure factor between oxygen atoms of water.
