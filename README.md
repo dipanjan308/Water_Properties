@@ -11,3 +11,9 @@ Calculates average number of hydrogen bonds per oxygen atom for varying box size
 
 ## static_sf_pw.py:
 Calculates the static structure factor between oxygen atoms of water.
+
+## q4.py:
+Calculates the probability distribution of the tetrahedral order parameter q4. It determines four nearest neighbor oxygen atoms of a oxygen atom and calculates q4.
+
+## oho_angle_dist.py:
+Calculates the probability distribution of O-H..O angle for all hydrogen atoms present in the system. First it finds two nearest neighbor oxygen atoms of each hydrogen atom. Then it calculates the angle made by oxygen1-hydrogen-oxygen2. 
