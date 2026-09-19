@@ -1,8 +1,8 @@
 import numpy as np
 from ase.io import read
 
-path = '/leonardo_scratch/fast/IscrB_HPHDQMC/Dipanjan/pure_water/M2_LJ/T400/mol_500/den_1.1603_02'
-traj = read(f'{path}/nvt_1.dump', format='lammps-dump-text', index='20000:40000', specorder=['O', 'H'])
+path = '/path_to_the_folder'
+traj = read(f'{path}/filename.dump', format='lammps-dump-text', index='20000:40000', specorder=['O', 'H'])
 
 #traj = read('../trajectory_nvt_mw_comb.xyz', '10000:', format='extxyz')
 
