@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 density=1.1603
 temperature=400
 
-path = '/leonardo_scratch/fast/IscrB_HPHDQMC/Dipanjan/pure_water/M2_LJ/T400/mol_500/den_1.1603_02'
-traj = read(f'{path}/nvt_1.dump', format='lammps-dump-text', index=':100000', specorder=['O', 'H'])
+path = '/path_to_the_folder'
+traj = read(f'{path}/filename.dump', format='lammps-dump-text', index=':100000', specorder=['O', 'H'])
 
 def sample_positions(ase_trajectory, symbol):
     positions = []
