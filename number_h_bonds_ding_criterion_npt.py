@@ -2,7 +2,7 @@ import numpy as np
 from ase.io import read
 from scipy.spatial import KDTree
 
-path = '/leonardo_scratch/fast/IscrC_STDPMW_0/Dipanjan/ice/T400_iceVII/mol_384/npt2.46GPa_01'
+path = '/path_to_the_folder'
 traj = read(f'{path}/pw_npt.dump', format='lammps-dump-text', index='700:', specorder=['O', 'H'])
 
 def sample_positions(ase_trajectory, symbol):
