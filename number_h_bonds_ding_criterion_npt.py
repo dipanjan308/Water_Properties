@@ -3,7 +3,7 @@ from ase.io import read
 from scipy.spatial import KDTree
 
 path = '/path_to_the_folder'
-traj = read(f'{path}/pw_npt.dump', format='lammps-dump-text', index='700:', specorder=['O', 'H'])
+traj = read(f'{path}/filename.dump', format='lammps-dump-text', index='700:', specorder=['O', 'H'])
 
 def sample_positions(ase_trajectory, symbol):
     positions = []
