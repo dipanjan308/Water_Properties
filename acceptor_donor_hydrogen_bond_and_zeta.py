@@ -2,8 +2,8 @@ import numpy as np
 from ase.io import read
 from scipy.spatial import KDTree
 
-path = '/leonardo_scratch/fast/IscrB_HPHDQMC/Dipanjan/pure_water/M2_LJ/T400/mol_500/den_1.1603_02'
-traj = read(f'{path}/nvt_1.dump', format='lammps-dump-text', index='100000:300000:10', specorder=['O', 'H'])
+path = '/path_to_the_folder'
+traj = read(f'{path}/nvt_1.dump', format='lammps-dump-text', index=':', specorder=['O', 'H'])
 
 def sample_positions(ase_trajectory, symbol):
     positions = []
@@ -119,7 +119,7 @@ for i in range(number_of_frames):
     pos_O_wrapped_oneframe = pos_O_wrapped[i]
     pos_H_wrapped_oneframe = pos_H_wrapped[i]
     Oxygen_wrapped_tree = KDTree(pos_O_wrapped_oneframe, boxsize = box_dim)
-    dist_oo, neighbors_oo = Oxygen_wrapped_tree.query(pos_O_wrapped_oneframe, k = max_nbr+1)  # k=7 gives the atom itself + 6 neighbors
+    dist_oo, neighbors_oo = Oxygen_wrapped_tree.query(pos_O_wrapped_oneframe, k = max_nbr+1)  # k=13 gives the atom itself + 12 neighbors
     Hydrogen_wrapped_tree = KDTree(pos_H_wrapped_oneframe, boxsize = box_dim)
     dist_oh, idx_oh = Hydrogen_wrapped_tree.query(pos_O_wrapped_oneframe, k=2)
     arr, delta_r = identify_donor_acceptor_bonds_oneframe(pos_O_wrapped_oneframe, pos_H_wrapped_oneframe, idx_oh, box_dim, neighbors_oo, dist_oo, number_of_oxygens, max_nbr+1)
@@ -139,5 +139,5 @@ bin_size = (range_max - range_min) / bins
 counts_bin, bin_edges = np.histogram(flattened_delta_r, bins=bins, range=(range_min, range_max), density=True)
 bin_centers = 0.5 * (bin_edges[:-1] + bin_edges[1:])
 
-np.savetxt(f'{path}/results_adhb_02/zeta_hist.dat', np.column_stack((bin_centers, counts_bin)), header='bin_center density', fmt='%.6e')
-np.savetxt(f'{path}/results_adhb_02/average_acceptor_donor_array.dat', average_acceptor_donor_array/(number_of_frames * number_of_oxygens), fmt='%0.6f')
+np.savetxt(f'{path}/zeta_hist.dat', np.column_stack((bin_centers, counts_bin)), header='bin_center density', fmt='%.6e')
+np.savetxt(f'{path}/average_acceptor_donor_array.dat', average_acceptor_donor_array/(number_of_frames * number_of_oxygens), fmt='%0.6f')
