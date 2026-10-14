@@ -17,3 +17,6 @@ Calculates the probability distribution of the tetrahedral order parameter q4. I
 
 ## oho_angle_dist.py:
 Calculates the probability distribution of O-H..O angle for all hydrogen atoms present in the system. First it finds two nearest neighbor oxygen atoms of each hydrogen atom. Then it calculates the angle made by oxygen1-hydrogen-oxygen2. 
+
+## acceptor_donor_hydrogen_bond_and_zeta.py:
+Calculates average Acceptor and Donor hydrogen bond statistics. For each water molecule, it calculates the probability of having n1 number of acceptor hydrogen bonds and n2 number of donor hydrogen bonds. It also calculates the difference (\zeta=d2-d1) between the distance of furthest hydrogen bonded oxygen atom (d1) and the distance of nearest non hydrogen bonded oxygen atom (d2).
